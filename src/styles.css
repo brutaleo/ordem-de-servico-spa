@@ -16,3 +16,12 @@ body {
 .ml-15px {
   margin-left: 15px;
 }
+
+table {
+  width: 100%;
+}
+
+.m-20px {
+  margin: 20px;
+}
+

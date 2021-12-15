@@ -1,1 +1,67 @@
-<p>ordem-de-servico works!</p>
+<div>
+  <mat-card class="m-20px">
+    <mat-card-header>
+      <mat-card-title>Gerenciar Ordens de Serviço</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+<!--      <mat-card *ngIf="dataSource.length == 0">
+        <mat-card-content>
+          Não há registros.
+        </mat-card-content>
+      </mat-card>-->
+
+      <table mat-table *ngIf="dataSource.length >= 0" [dataSource]="dataSource" class="mat-elevation-z0 ">
+
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> Id.</th>
+          <td mat-cell *matCellDef="let i =index"> {{i + 1}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="convenio">
+          <th mat-header-cell *matHeaderCellDef> Convênio</th>
+          <td mat-cell *matCellDef="let itemLista"> {{itemLista.convenio}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="medico">
+          <th mat-header-cell *matHeaderCellDef> Médico</th>
+          <td mat-cell *matCellDef="let itemLista"> {{itemLista.medico}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="paciente">
+          <th mat-header-cell *matHeaderCellDef> Paciente</th>
+          <td mat-cell *matCellDef="let itemLista"> {{itemLista.paciente}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="postoColeta">
+          <th mat-header-cell *matHeaderCellDef> Posto de Coleta</th>
+          <td mat-cell *matCellDef="let itemLista"> {{itemLista.postoColeta}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="dataDeCadastro">
+          <th mat-header-cell *matHeaderCellDef> Cadastrada em:</th>
+          <td mat-cell *matCellDef="let itemLista"> {{itemLista.dataDeCadastro}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="acoes">
+          <th mat-header-cell *matHeaderCellDef> Ações</th>
+          <td mat-cell *matCellDef="let itemLista">
+            <button mat-raised-button color="primary" (click)="editaOrdemDeServico(itemLista)">Editar</button>
+            <button mat-raised-button color="warn" (click)="deletaOrdemDeServico(itemLista)">Excluir</button>
+          </td>
+        </ng-container>
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+    </mat-card-content>
+
+    <mat-card-actions>
+      <a mat-raised-button color="primary" [routerLink]="['/']">Voltar</a>
+      <a mat-raised-button color="primary" (click)="adicionarNovaOrdemDeServico()">Adicionar nova Ordem de Serviço</a>
+    </mat-card-actions>
+
+  </mat-card>
+</div>

@@ -1,14 +1,14 @@
 <div class="main-container">
   <app-header [sidenav]="sidenav"></app-header>
 
-  <mat-sidenav-container style="width: 200%">
+  <mat-sidenav-container class="sidenav-container">
     <mat-sidenav #sidenav class="w-15px">
 
       <mat-list>
         <mat-list-item (click)="sidenav.toggle()">
           <mat-icon>home</mat-icon>
           <span class="ml-15px">
-            <a href="/">Início</a>
+            <a [routerLink]="['/']">Início</a>
           </span>
         </mat-list-item>
 
@@ -17,14 +17,15 @@
         <mat-list-item (click)="sidenav.toggle()">
           <mat-icon>format_list_bulleted</mat-icon>
           <span class="ml-15px">
-            <a href="/">Cadastrar Ordem de Serviço</a>
+            <a [routerLink]="['/ordem']">Cadastrar Ordem de Serviço</a>
           </span>
         </mat-list-item>
       </mat-list>
     </mat-sidenav>
 
-    <mat-sidenav-content style="height: 500px">
-        teste sidenavbar
+    <mat-sidenav-content>
+
+       <router-outlet></router-outlet>
 
     </mat-sidenav-content>
   </mat-sidenav-container>

@@ -9,18 +9,25 @@ import { HeaderComponent } from './header/header.component';
 import {FormsModule} from "@angular/forms";
 import {MaterialModule} from "./material.module";
 import { FooterComponent } from './footer/footer.component';
+import { HomeComponent } from './home/home.component';
+import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada/pagina-nao-encontrada.component';
+import {RouterModule} from "@angular/router";
+
 
 @NgModule({
   declarations: [
     AppComponent,
     OrdemDeServicoComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    HomeComponent,
+    PaginaNaoEncontradaComponent
   ],
   imports: [
     MaterialModule,
     BrowserModule,
     AppRoutingModule,
+    RouterModule,
     FormsModule,
     BrowserAnimationsModule
   ],
