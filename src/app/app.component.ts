@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ordem-de-servico-spa';
+
+  public events: string[] = [];
+  public opened: boolean = false;
 }
