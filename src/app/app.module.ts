@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OrdemDeServicoComponent } from './ordem-de-servico/ordem-de-servico.component';
 import { HeaderComponent } from './header/header.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MaterialModule} from "./material.module";
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada/pagina-nao-encontrada.component';
 import {RouterModule} from "@angular/router";
 import { CaixaDeDialogoComponent } from './caixa-de-dialogo/caixa-de-dialogo.component';
+import { OrdemDeServicoEdicaoComponent } from './ordem-de-servico-edicao/ordem-de-servico-edicao.component';
+import { OrdemDeServicoFormularioComponent } from './ordem-de-servico-formulario/ordem-de-servico-formulario.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { CaixaDeDialogoComponent } from './caixa-de-dialogo/caixa-de-dialogo.com
     FooterComponent,
     HomeComponent,
     PaginaNaoEncontradaComponent,
-    CaixaDeDialogoComponent
+    CaixaDeDialogoComponent,
+    OrdemDeServicoEdicaoComponent,
+    OrdemDeServicoFormularioComponent
   ],
   imports: [
     MaterialModule,
@@ -31,7 +35,8 @@ import { CaixaDeDialogoComponent } from './caixa-de-dialogo/caixa-de-dialogo.com
     AppRoutingModule,
     RouterModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -34,3 +34,8 @@ table {
   justify-content: space-evenly!important;
 }
 
+.flx-clmn {
+  display: flex!important;
+  flex-direction: column;
+}
+

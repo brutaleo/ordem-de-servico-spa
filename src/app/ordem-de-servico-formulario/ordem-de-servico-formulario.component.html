@@ -1,0 +1,30 @@
+<div>
+
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{nomeDaAcao}} Ordem de Serviço</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+
+      <form [formGroup]="formularioOrdemDeServico" #formularioOrdemDeServicoDirective="ngForm">
+        <div class="flx-clmn">
+          <mat-form-field appearance="outline">
+            <mat-label>Convênio</mat-label>
+            <input matInput type="text" formControlName="convenio">
+            <mat-error *ngIf="formularioOrdemDeServico?.controls?.convenio?.errors?.required">O campo [Convênio] é
+              obrigatório.
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </form>
+
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-raised-button color="warn" (click)="cancelar()">Cancelar</button>
+      <button mat-raised-button color="primary" (click)="salvar()">Salvar</button>
+    </mat-card-actions>
+  </mat-card>
+
+</div>
