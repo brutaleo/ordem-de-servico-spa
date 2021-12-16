@@ -12,6 +12,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada/pagina-nao-encontrada.component';
 import {RouterModule} from "@angular/router";
+import { CaixaDeDialogoComponent } from './caixa-de-dialogo/caixa-de-dialogo.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import {RouterModule} from "@angular/router";
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    PaginaNaoEncontradaComponent
+    PaginaNaoEncontradaComponent,
+    CaixaDeDialogoComponent
   ],
   imports: [
     MaterialModule,

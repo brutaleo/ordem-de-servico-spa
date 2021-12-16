@@ -24,5 +24,6 @@ export class OrdemDeServicoComponent implements OnInit {
 
   deletaOrdemDeServico(ordemDeServico: OrdemDeServico) {
 
+
   }
 }

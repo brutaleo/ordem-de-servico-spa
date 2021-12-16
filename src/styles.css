@@ -25,3 +25,12 @@ table {
   margin: 20px;
 }
 
+.flx-row {
+  display: flex!important;
+  flex-direction: row;
+}
+
+.flx-evenly{
+  justify-content: space-evenly!important;
+}
+
