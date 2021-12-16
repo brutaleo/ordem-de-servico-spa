@@ -51,6 +51,7 @@
         <ng-container matColumnDef="acoes">
           <th mat-header-cell *matHeaderCellDef> Ações</th>
           <td mat-cell *matCellDef="let itemLista" >
+            <button class="mr-10px" mat-raised-button color="primary" (click)="adicionarExames(itemLista)">Exames</button>
             <button class="mr-10px" mat-raised-button color="primary" (click)="editaOrdemDeServico(itemLista)">Editar</button>
             <button class="mr-10px" mat-raised-button color="warn" (click)="deletaOrdemDeServico(itemLista)">Excluir</button>
             <button class="mr-10px" mat-raised-button color="accent" (click)="gerarProtocolo(itemLista)">Gerar Protocolo</button>
