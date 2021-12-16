@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {OrdemDeServico} from "../modelo/OrdemDeServico";
 
 @Component({
   selector: 'app-ordem-de-servico-formulario',
@@ -8,8 +9,11 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 })
 export class OrdemDeServicoFormularioComponent implements OnInit {
 
-  public nomeDaAcao = 'Editar';
+
   public formularioOrdemDeServico!: FormGroup;
+  @Input() public nomeDaAcao = 'Editar';
+  @Input() public ordemDeServicoEditavel!: OrdemDeServico;
+  @Output() public fecharModalEventEmiter: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor(private formBuilder: FormBuilder) { }
 
@@ -29,7 +33,7 @@ export class OrdemDeServicoFormularioComponent implements OnInit {
   }
 
   public cancelar() {
-
+    this.fecharModalEventEmiter.emit(false);
   }
 
   public salvar() {
