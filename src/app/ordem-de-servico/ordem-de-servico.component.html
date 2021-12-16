@@ -14,27 +14,27 @@
       <table mat-table *ngIf="dataSource.length >= 0" [dataSource]="dataSource" class="mat-elevation-z0 ">
 
         <ng-container matColumnDef="id">
-          <th mat-header-cell *matHeaderCellDef> Id.</th>
+          <th mat-header-cell *matHeaderCellDef> Id.:</th>
           <td mat-cell *matCellDef="let i =index"> {{i + 1}} </td>
         </ng-container>
 
         <ng-container matColumnDef="convenio">
-          <th mat-header-cell *matHeaderCellDef> Convênio</th>
+          <th mat-header-cell *matHeaderCellDef> Convênio:</th>
           <td mat-cell *matCellDef="let itemLista"> {{itemLista.convenio}} </td>
         </ng-container>
 
         <ng-container matColumnDef="medico">
-          <th mat-header-cell *matHeaderCellDef> Médico</th>
+          <th mat-header-cell *matHeaderCellDef> Médico:</th>
           <td mat-cell *matCellDef="let itemLista"> {{itemLista.medico}} </td>
         </ng-container>
 
         <ng-container matColumnDef="paciente">
-          <th mat-header-cell *matHeaderCellDef> Paciente</th>
+          <th mat-header-cell *matHeaderCellDef> Paciente:</th>
           <td mat-cell *matCellDef="let itemLista"> {{itemLista.paciente}} </td>
         </ng-container>
 
         <ng-container matColumnDef="postoColeta">
-          <th mat-header-cell *matHeaderCellDef> Posto de Coleta</th>
+          <th mat-header-cell *matHeaderCellDef> Posto de Coleta:</th>
           <td mat-cell *matCellDef="let itemLista"> {{itemLista.postoColeta}} </td>
         </ng-container>
 
@@ -43,11 +43,17 @@
           <td mat-cell *matCellDef="let itemLista"> {{itemLista.dataDeCadastro}} </td>
         </ng-container>
 
+        <ng-container matColumnDef="protocolo">
+          <th mat-header-cell *matHeaderCellDef> Protocolo:</th>
+          <td mat-cell *matCellDef="let itemLista"> {{itemLista.protocolo}} </td>
+        </ng-container>
+
         <ng-container matColumnDef="acoes">
           <th mat-header-cell *matHeaderCellDef> Ações</th>
-          <td mat-cell *matCellDef="let itemLista">
-            <button mat-raised-button color="primary" (click)="editaOrdemDeServico(itemLista)">Editar</button>
-            <button mat-raised-button color="warn" (click)="deletaOrdemDeServico(itemLista)">Excluir</button>
+          <td mat-cell *matCellDef="let itemLista" >
+            <button class="mr-10px" mat-raised-button color="primary" (click)="editaOrdemDeServico(itemLista)">Editar</button>
+            <button class="mr-10px" mat-raised-button color="warn" (click)="deletaOrdemDeServico(itemLista)">Excluir</button>
+            <button class="mr-10px" mat-raised-button color="accent" (click)="gerarProtocolo(itemLista)">Gerar Protocolo</button>
           </td>
         </ng-container>
 
@@ -58,7 +64,7 @@
 
     </mat-card-content>
 
-    <mat-card-actions>
+    <mat-card-actions >
       <a mat-raised-button color="primary" [routerLink]="['/']">Voltar</a>
       <a mat-raised-button color="primary" (click)="adicionarNovaOrdemDeServico()">Adicionar nova Ordem de Serviço</a>
     </mat-card-actions>

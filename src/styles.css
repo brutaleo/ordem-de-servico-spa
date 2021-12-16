@@ -39,3 +39,7 @@ table {
   flex-direction: column;
 }
 
+.mr-10px {
+  margin-right: 10px !important;
+}
+
