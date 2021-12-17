@@ -62,7 +62,7 @@ export class OrdemDeServicoFormularioComponent implements OnInit {
       medico: [this.ordemDeServicoEditavel != null ? this.ordemDeServicoEditavel.medico : false, Validators.required],
       paciente: [this.ordemDeServicoEditavel != null ? this.ordemDeServicoEditavel.paciente : false, Validators.required],
       postoColeta: [this.ordemDeServicoEditavel != null ? this.ordemDeServicoEditavel.postoColeta : false, Validators.required],
-      dataDeCadastro: [this.ordemDeServicoEditavel != null ? this.ordemDeServicoEditavel.dataDeCadastro : false, Validators.required],
+      dataDeCadastro: [this.ordemDeServicoEditavel != null ? this.ordemDeServicoEditavel.dataCadastro : false, Validators.required],
 
     });
   }

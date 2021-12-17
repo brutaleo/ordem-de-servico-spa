@@ -25,22 +25,22 @@
 
         <ng-container matColumnDef="medico">
           <th mat-header-cell *matHeaderCellDef> Médico:</th>
-          <td mat-cell *matCellDef="let itemLista"> {{itemLista.medico}} </td>
+          <td mat-cell *matCellDef="let itemLista"> {{itemLista.medico.nome}} </td>
         </ng-container>
 
         <ng-container matColumnDef="paciente">
           <th mat-header-cell *matHeaderCellDef> Paciente:</th>
-          <td mat-cell *matCellDef="let itemLista"> {{itemLista.paciente}} </td>
+          <td mat-cell *matCellDef="let itemLista"> {{itemLista.paciente.nome}} </td>
         </ng-container>
 
         <ng-container matColumnDef="postoColeta">
           <th mat-header-cell *matHeaderCellDef> Posto de Coleta:</th>
-          <td mat-cell *matCellDef="let itemLista"> {{itemLista.postoColeta}} </td>
+          <td mat-cell *matCellDef="let itemLista"> {{itemLista.postoColeta.descricao}} </td>
         </ng-container>
 
         <ng-container matColumnDef="dataDeCadastro">
           <th mat-header-cell *matHeaderCellDef> Cadastrada em:</th>
-          <td mat-cell *matCellDef="let itemLista"> {{itemLista.dataDeCadastro}} </td>
+          <td mat-cell *matCellDef="let itemLista"> {{itemLista.dataCadastro}} </td>
         </ng-container>
 
         <ng-container matColumnDef="protocolo">

@@ -7,7 +7,7 @@ export class OrdemDeServico {
   public id!: number;
   public convenio!: string;
   public protocolo!: string;
-  public dataDeCadastro!: Date;
+  public dataCadastro!: Date;
   public dataDeAtualizacao!: Date;
   public medico!: Medico;
   public paciente!: Paciente;
