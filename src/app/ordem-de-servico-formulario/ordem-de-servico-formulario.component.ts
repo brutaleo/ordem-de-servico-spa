@@ -12,8 +12,6 @@ import {PostoColeta} from "../modelo/PostoColeta";
 })
 export class OrdemDeServicoFormularioComponent implements OnInit {
 
-
-  public formularioOrdemDeServico!: FormGroup;
   @Input() public nomeDaAcao = 'Editar';
   @Input() public ordemDeServicoEditavel!: OrdemDeServico;
   @Output() public fecharModalEventEmiter: EventEmitter<boolean> = new EventEmitter<boolean>();
@@ -21,6 +19,7 @@ export class OrdemDeServicoFormularioComponent implements OnInit {
   public medicos: Medico[] =[];
   public pacientes: Paciente[] =[];
   public postoColetas: PostoColeta[] =[];
+  public formularioOrdemDeServico!: FormGroup;
 
   @ViewChild(FormGroupDirective) public formularioOrdemDeServicoDirective!: FormGroupDirective;
 
@@ -32,11 +31,11 @@ export class OrdemDeServicoFormularioComponent implements OnInit {
 
   private criarFormulario(){
     this.formularioOrdemDeServico = this.formBuilder.group({
-      convenio: ['',Validators.required],
-      medico: ['',Validators.required],
-      paciente: ['',Validators.required],
-      postoColeta: ['',Validators.required],
-      dataDeCadastro: ['',Validators.required],
+      convenio: [this.ordemDeServicoEditavel != null ? this.ordemDeServicoEditavel.convenio : false, Validators.required],
+      medico: [this.ordemDeServicoEditavel != null ? this.ordemDeServicoEditavel.medico : false, Validators.required],
+      paciente: [this.ordemDeServicoEditavel != null ? this.ordemDeServicoEditavel.paciente : false, Validators.required],
+      postoColeta: [this.ordemDeServicoEditavel != null ? this.ordemDeServicoEditavel.postoColeta : false, Validators.required],
+      dataDeCadastro: [this.ordemDeServicoEditavel != null ? this.ordemDeServicoEditavel.dataDeCadastro : false, Validators.required],
 
     });
   }
@@ -46,6 +45,7 @@ export class OrdemDeServicoFormularioComponent implements OnInit {
   }
 
   public salvar() {
+    this.fecharModalEventEmiter.emit(true);
 
   }
 

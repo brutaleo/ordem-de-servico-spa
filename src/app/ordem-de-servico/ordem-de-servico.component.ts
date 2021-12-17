@@ -4,6 +4,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {OrdemDeServicoEdicaoComponent} from "../ordem-de-servico-edicao/ordem-de-servico-edicao.component";
 import {OrdemDeServicoExame} from "../modelo/OrdemDeServicoExame";
 import {CaixaDeDialogoComponent} from "../caixa-de-dialogo/caixa-de-dialogo.component";
+import {OrdemDeServicoService} from "../services/ordem-de-servico.service";
 
 export const ORDENS_DATA = [
   {
@@ -34,11 +35,11 @@ export const ORDENS_DATA = [
   styleUrls: ['./ordem-de-servico.component.css']
 })
 export class OrdemDeServicoComponent implements OnInit {
-  //public dataSource: OrdemDeServico[] = [];
-  public dataSource: ({ protocolo: string; postoColeta: string; paciente: string; medico: string; convenio: string; dataDeCadastro: string; id: string; dataDeAtualizacao: string })[] = ORDENS_DATA;
+  public dataSource: OrdemDeServico[] = [];
+  //public dataSource: ({ protocolo: string; postoColeta: string; paciente: string; medico: string; convenio: string; dataDeCadastro: string; id: string; dataDeAtualizacao: string })[] = ORDENS_DATA;
   public displayedColumns: string[] = ['id', 'convenio', 'medico', 'paciente', 'postoColeta', 'dataDeCadastro', 'protocolo', 'acoes'];
 
-  constructor(private dialog: MatDialog) {
+  constructor(private dialog: MatDialog, private ordemDeServicoService: OrdemDeServicoService) {
   }
 
   ngOnInit(): void {
@@ -46,7 +47,13 @@ export class OrdemDeServicoComponent implements OnInit {
   }
 
   private carregaTodosAsOrdensDeServico() {
-
+    this.ordemDeServicoService
+      .buscarTodasAsOrdensDeServico()
+      .subscribe(
+        (resposta: OrdemDeServico[]) => {
+        this.dataSource = resposta;
+        }
+      );
   }
 
   public adicionarNovaOrdemDeServico() {
