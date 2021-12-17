@@ -8,6 +8,10 @@ import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 })
 export class CaixaDeDialogoComponent implements OnInit {
 
+  public dialogMsg = 'Deseja continuar com esta ação?';
+  public labelBotaoEsquerdo = 'Cancelar';
+  public labelBotaoDireito = 'Ok';
+
   constructor(
     public dialogRef: MatDialogRef<CaixaDeDialogoComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) {
@@ -24,9 +28,6 @@ export class CaixaDeDialogoComponent implements OnInit {
       this.labelBotaoDireito = data.labelBotaoDireito;
     }
   }
-  public dialogMsg = 'Deseja continuar com esta ação?';
-  public labelBotaoEsquerdo = 'Cancelar';
-  public labelBotaoDireito = 'Ok';
 
   ngOnInit(): void {
   }

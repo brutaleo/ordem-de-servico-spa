@@ -1,6 +1,9 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {FormBuilder, FormGroup, FormGroupDirective, Validators} from "@angular/forms";
 import {OrdemDeServico} from "../modelo/OrdemDeServico";
+import {Medico} from "../modelo/Medico";
+import {Paciente} from "../modelo/Paciente";
+import {PostoColeta} from "../modelo/PostoColeta";
 
 @Component({
   selector: 'app-ordem-de-servico-formulario',
@@ -15,6 +18,12 @@ export class OrdemDeServicoFormularioComponent implements OnInit {
   @Input() public ordemDeServicoEditavel!: OrdemDeServico;
   @Output() public fecharModalEventEmiter: EventEmitter<boolean> = new EventEmitter<boolean>();
 
+  public medicos: Medico[] =[];
+  public pacientes: Paciente[] =[];
+  public postoColetas: PostoColeta[] =[];
+
+  @ViewChild(FormGroupDirective) public formularioOrdemDeServicoDirective!: FormGroupDirective;
+
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
@@ -24,10 +33,10 @@ export class OrdemDeServicoFormularioComponent implements OnInit {
   private criarFormulario(){
     this.formularioOrdemDeServico = this.formBuilder.group({
       convenio: ['',Validators.required],
-      medico: [''],
-      paciente: [''],
-      postoColeta: [''],
-      dataDeCadastro: [''],
+      medico: ['',Validators.required],
+      paciente: ['',Validators.required],
+      postoColeta: ['',Validators.required],
+      dataDeCadastro: ['',Validators.required],
 
     });
   }
@@ -38,5 +47,10 @@ export class OrdemDeServicoFormularioComponent implements OnInit {
 
   public salvar() {
 
+  }
+
+  private limpaFormulario() {
+    this.formularioOrdemDeServico.reset();
+    this.formularioOrdemDeServicoDirective.resetForm();
   }
 }
