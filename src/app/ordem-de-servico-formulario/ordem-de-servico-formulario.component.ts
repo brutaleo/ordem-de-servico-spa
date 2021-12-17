@@ -51,9 +51,10 @@ export class OrdemDeServicoFormularioComponent implements OnInit {
       .subscribe(
         (resposta: PostoColeta[]) => {
           this.postoColetas = resposta;
-          this.criarFormulario();
         }
       );
+
+    this.criarFormulario();
   }
 
   private criarFormulario(){

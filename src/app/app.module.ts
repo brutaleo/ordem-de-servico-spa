@@ -34,11 +34,11 @@ import {HttpClientModule} from "@angular/common/http";
     MaterialModule,
     BrowserModule,
     AppRoutingModule,
-    RouterModule,
     FormsModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
