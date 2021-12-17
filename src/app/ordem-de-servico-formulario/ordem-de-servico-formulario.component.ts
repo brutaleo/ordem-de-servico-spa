@@ -19,9 +19,9 @@ export class OrdemDeServicoFormularioComponent implements OnInit {
   @Input() public ordemDeServicoEditavel!: OrdemDeServico;
   @Output() public fecharModalEventEmiter: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  public medicos: Medico[] =[];
-  public pacientes: Paciente[] =[];
-  public postoColetas: PostoColeta[] =[];
+  public medicos: Medico[] = [];
+  public pacientes: Paciente[] = [];
+  public postoColetas: PostoColeta[] = [];
   public formularioOrdemDeServico!: FormGroup;
 
   @ViewChild(FormGroupDirective) public formularioOrdemDeServicoDirective!: FormGroupDirective;
@@ -51,10 +51,9 @@ export class OrdemDeServicoFormularioComponent implements OnInit {
       .subscribe(
         (resposta: PostoColeta[]) => {
           this.postoColetas = resposta;
+          this.criarFormulario();
         }
       );
-
-    this.criarFormulario();
   }
 
   private criarFormulario(){

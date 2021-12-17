@@ -15,6 +15,7 @@ import {RouterModule} from "@angular/router";
 import { CaixaDeDialogoComponent } from './caixa-de-dialogo/caixa-de-dialogo.component';
 import { OrdemDeServicoEdicaoComponent } from './ordem-de-servico-edicao/ordem-de-servico-edicao.component';
 import { OrdemDeServicoFormularioComponent } from './ordem-de-servico-formulario/ordem-de-servico-formulario.component';
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { OrdemDeServicoFormularioComponent } from './ordem-de-servico-formulario
     RouterModule,
     FormsModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -5,13 +5,13 @@
     </mat-card-header>
 
     <mat-card-content>
-<!--      <mat-card *ngIf="dataSource.length == 0">
+      <mat-card *ngIf="dataSource.length == 0">
         <mat-card-content>
           Não há registros.
         </mat-card-content>
-      </mat-card>-->
+      </mat-card>
 
-      <table mat-table *ngIf="dataSource.length >= 0" [dataSource]="dataSource" class="mat-elevation-z0 ">
+      <table mat-table *ngIf="dataSource.length > 0" [dataSource]="dataSource" class="mat-elevation-z0 ">
 
         <ng-container matColumnDef="id">
           <th mat-header-cell *matHeaderCellDef> Id.:</th>
