@@ -4,6 +4,9 @@ import {OrdemDeServico} from "../modelo/OrdemDeServico";
 import {Medico} from "../modelo/Medico";
 import {Paciente} from "../modelo/Paciente";
 import {PostoColeta} from "../modelo/PostoColeta";
+import {MedicoService} from "../services/medico.service";
+import {PacienteService} from "../services/paciente.service";
+import {PostoColetaService} from "../services/posto-coleta.service";
 
 @Component({
   selector: 'app-ordem-de-servico-formulario',
@@ -23,9 +26,34 @@ export class OrdemDeServicoFormularioComponent implements OnInit {
 
   @ViewChild(FormGroupDirective) public formularioOrdemDeServicoDirective!: FormGroupDirective;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private medicoService: MedicoService,
+              private pacienteService: PacienteService, private postoColetaService: PostoColetaService) { }
 
   ngOnInit(): void {
+    this.medicoService
+      .buscarTodosOsMedicos()
+      .subscribe(
+        (resposta: Medico[]) => {
+          this.medicos = resposta;
+        }
+      );
+
+    this.pacienteService
+      .buscarTodosOsPacientes()
+      .subscribe(
+        (resposta: Paciente[]) => {
+          this.pacientes = resposta;
+        }
+      );
+
+    this.postoColetaService
+      .buscarTodosOsPostosDeColeta()
+      .subscribe(
+        (resposta: PostoColeta[]) => {
+          this.postoColetas = resposta;
+        }
+      );
+
     this.criarFormulario();
   }
 
